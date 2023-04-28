@@ -1,0 +1,422 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: white) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* App and Homepage */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: aliceblue
+}
+.app-title {
+  margin-top: 1rem;
+  font-size: 2.5rem;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+.video-container {
+  width: 80% ;
+  height: auto ;
+  margin-left: 15rem;
+  padding: 1rem ;
+}
+
+.carousel-container {
+  margin-top: -105rem;
+  margin-left: 30rem;
+}
+
+/* Navbar */
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 7rem;
+  flex-direction: row;
+}
+
+.nav-item {
+  flex: 1 1 4rem;
+  height: 10rem;
+  padding: .8rem;
+  margin: 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 100%;
+  border: 2px solid black;
+  text-decoration: none;
+  background-color: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.nav-link:hover {
+  background-color: #f9f9f9;
+  transform: translateY(-0.5rem);
+}
+
+.nav-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.3rem;
+}
+
+.nav-subtitle {
+  font-size: 1rem;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: black; 
+  color: aliceblue;
+}
+
+.menu-items li {
+  margin: 0 3px;
+}
+
+.menu-items button {
+  color: aliceblue;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.menu-items a {
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 0.5rem;
+  padding-right: 3rem;
+}
+
+.alert {
+  background-color: #ff6666;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert button {
+  background-color: white;
+  border: none;
+  color: #ff6666;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* About  */
+.about-us {
+  font-size: 5rem; /* or any other desired font size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  margin-top: 22rem;
+  margin-left: 20rem;
+  position: absolute;
+  flex-direction: column;
+   /* or any other desired height */
+}
+
+.about-us-heading {
+  font-size: 4rem; /* or any other desired font size */
+  margin-bottom: 3rem; /* or any other desired margin */
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-us p {
+  font-size: 1.2rem; /* or any other desired font size */
+  text-align: center;
+  margin: 0 2rem 08rem 6rem; /* or any other desired margin */
+  display: flex;
+  width: 40rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-us-img {
+  margin-top: 29rem;
+}
+
+/* Signup */
+.sign-up-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 600px;
+  margin: 3rem auto;
+  border: 5px solid black;
+  padding: 1rem;
+  font-size: 2rem;
+}
+.go-to-login {
+  display: flex;
+  margin-bottom: 25rem;
+  font-size: 1.5rem;
+}
+
+.sign-up-heading {
+  margin-bottom: 42rem;
+  padding-left: 2rem;
+  display: flex;
+}
+
+.submit-button {
+  background-color: aqua;
+  border: 3px solid black;
+  width: 7rem;
+  margin-top: 1rem;
+}
+
+/* Login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 600px;
+  margin: 3rem auto;
+  border: 5px solid black;
+  padding: 1rem;
+  font-size: 2rem;
+}
+.go-to-signup {
+  display: flex;
+  margin-bottom: 25rem;
+  font-size: 1.5rem;
+}
+
+.login-heading {
+  margin-bottom: 42rem;
+  padding-left: 2rem;
+  display: flex;
+}
+
+/* Blog card container */
+.blog-card {
+  width: 300px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Blog card image */
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Blog card content */
+.blog-card .card-body {
+  padding: 10px;
+}
+
+.blog-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.blog-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.blog-card a {
+  font-size: 16px;
+  color: #007bff;
+}
+
+/* Blog card footer */
+.blog-card .card-footer {
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+.blog-card .card-footer small {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+/* Explore */
+
+.explore {
+  margin-left: 41rem;
+  font-size: 4rem;
+}
+
+#map {
+  margin-left: 10rem
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.map-search-box {
+  margin-bottom: 1.5rem;
+  margin-left: 7rem;
+  margin-right: 1rem;
+  margin-top: -5rem;
+  font-size: 1.2rem;
+  border: 2px solid black;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.map-search-button {
+  margin-left: 8rem;
+  margin-bottom: 3rem;
+  border: 2px solid black;
+  font-size: 1.2rem;
+  width: 10rem;
+  background-color: black;
+  color: white
+}
+
+.weather-dashboard-card {
+  margin-right: 55rem;
+  margin-top: -30rem;
+  font-size: 1.2rem;
+}
+
+.weather-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: right;  
+  justify-content: space-between;
+}
+
+.search-container {
+  margin: 1rem;
+}
+
+.search-input {
+  margin-right: 1rem;
+  border: 1px solid black
+}
+
+.search-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.current-weather-container {
+  margin: 1rem;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.current-weather-details {
+  background-color: lightcyan;
+  display: flex;
+  align-items: center;
+  border: 1px solid black
+}
+
+.current-weather-details img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+}
+
+.current-weather-details p {
+  margin: 0;
+}
+
+.forecast-container {
+  margin: 1rem;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.forecast-list {
+  list-style-type: none;
+  padding: 0;
+  flex-direction: column;
+  display: flex;
+}
+
+.forecast-item {
+  background-color: lightcyan;
+  margin-bottom: 0.5rem;
+  border: 1px solid black
+}
+
+.forecast-details {
+  display: flex;
+  align-items: center;
+}
+
+.forecast-details img {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.forecast-details p {
+  margin-right: 1rem;
+}
