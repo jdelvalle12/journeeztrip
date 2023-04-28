@@ -1,48 +1,54 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Mapbox from 'mapbox-gl';
 import { Form, FormControl, Button } from 'react-bootstrap'; // importing search bar components from react-bootstrap
+import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, useMutation } from '@apollo/client';
+import { GET_LOCATIONS, GET_LODGINGS, ADD_LOCATION, ADD_LODGING } from './queries';
+import React from 'react';
 
-//  const client = new ApolloClient({
-//   uri: "http://localhost:4000/graphql",
-//   cache: new InMemoryCache(),
-//   resolvers: resolvers,
-//   typeDefs: typeDefs,
-// });
+// Initialize Apollo client
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache()
+});
 
-
-
-export default function Explore() {
-  const [locations, setLocations] = useState([]);
-  const [lodging, setLodging] = useState([]);
-  const [attractions, setAttractions] = useState([]);
-  const [eateries, setEateries] = useState([]);
-  const [searchValue, setSearchValue] = useState('');
+function Explore() {
+  // const [locations, setLocations] = useState([]);
+  // const [lodging, setLodging] = useState([]);
+  // const [searchValue, setSearchValue] = useState('');
+  // const [attractions, setAttractions] = useState([]);
+  // const [eateries, setEateries] = useState([]);
   // const [lodgingSearchValue, setLodgingSearchValue] = useState('');
   // const [attractionsSearchValue, setAttractionsSearchValue] = useState('');
   // const [eateriesSearchValue, setEateriesSearchValue] = useState('');
   // const [locationsSearchValue, setLocationsSearchValue] = useState('');
-
+  
+  // Define queries and mutations
+  const { loading: locationsLoading, error: locationsError, data: locationsData } = useQuery(GET_LOCATIONS);
+  // const { loading: lodgingLoading, error: lodgingError, data: lodgingData } = useQuery(GET_LODGINGS);
+  // const [addLocation] = useMutation(ADD_LOCATION);
+  // const [addLodging] = useMutation(ADD_LODGING);
+  
   useEffect(() => {
-    // Fetch data from APIs
-    fetch('/api/locations')
-      .then(response => response.json())
-      .then(data => setLocations(data))
-      .catch(error => console.error(error));
-      
-    fetch('/api/lodging')
-      .then(response => response.json())
-      .then(data => setLodging(data))
-      .catch(error => console.error(error));
-      
-    fetch('/api/attractions')
-      .then(response => response.json())
-      .then(data => setAttractions(data))
-      .catch(error => console.error(error));
-      
-    fetch('/api/eateries')
-      .then(response => response.json())
-      .then(data => setEateries(data))
-      .catch(error => console.error(error));
+    // // Fetch data from APIs
+    // fetch('/api/locations')
+    //   .then(response => response.json())
+    //   .then(data => setLocations(data))
+    //   .catch(error => console.error(error));
+    
+    // fetch('/api/lodging')
+    //   .then(response => response.json())
+    //   .then(data => setLodging(data))
+    //   .catch(error => console.error(error));
+    
+    // fetch('/api/attractions')
+    //   .then(response => response.json())
+    //   .then(data => setAttractions(data))
+    //   .catch(error => console.error(error));
+    
+    // fetch('/api/eateries')
+    //   .then(response => response.json())
+    //   .then(data => setEateries(data))
+    //   .catch(error => console.error(error));
     
     // Initialize Mapbox map
     Mapbox.accessToken = `pk.eyJ1IjoiamRlbHZhbGxlMTIiLCJhIjoiY2xnc2YyZG92MW50MTNqbWs1enV6a3gyOSJ9.NyHRU66sRujiLrEwi7AXow`;
@@ -53,182 +59,196 @@ export default function Explore() {
       zoom: 9
     });
     
- // Add location markers to map
- locations.forEach(location => {
-  new Mapbox.Marker({color: 'orange'})
-    .setLngLat(location.coordinates)
-    .addTo(map);
-});
+//  // Add location markers to map
+//  locations.forEach(location => {
+//   new Mapbox.Marker({color: 'orange'})
+//     .setLngLat(location.coordinates)
+//     .addTo(map);
+// });
 
-// Add lodging markers to map
-lodging.forEach(lodge => {
-  new Mapbox.Marker({color: 'red'})
-    .setLngLat(lodge.coordinates)
-    .addTo(map);
-});
+// // Add lodging markers to map
+// lodging.forEach(lodge => {
+//   new Mapbox.Marker({color: 'red'})
+//     .setLngLat(lodge.coordinates)
+//     .addTo(map);
+// });
 
-// Add attraction markers to map
-attractions.forEach(attraction => {
-  new Mapbox.Marker({color: 'blue'})
-    .setLngLat(attraction.coordinates)
-    .addTo(map);
-});
+// // Add attraction markers to map
+// attractions.forEach(attraction => {
+//   new Mapbox.Marker({color: 'blue'})
+//     .setLngLat(attraction.coordinates)
+//     .addTo(map);
+// });
 
-// Add eatery markers to map
-eateries.forEach(eatery => {
-  new Mapbox.Marker({color: 'green'})
-    .setLngLat(eatery.coordinates)
-    .addTo(map);
-});
+// // Add eatery markers to map
+// eateries.forEach(eatery => {
+//   new Mapbox.Marker({color: 'green'})
+//     .setLngLat(eatery.coordinates)
+//     .addTo(map);
+// });
     
-    // Cleanup
-    return () => {
-      map.remove();
+//     // Cleanup
+//     return () => {
+//       map.remove();
+//     }
+//   }, [locations, lodging, attractions, eateries]);
+
+// Add markers for each location and lodging
+if (locationsData && lodgingData) {
+  const locationsMarkers = locationsData.locations.map((location) => {
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [location.longitude, location.latitude]
+      },
+      properties: {
+        title: location.name,
+        description: location.description,
+        icon: 'marker'
+      }
     }
-  }, [locations, lodging, attractions, eateries]);
-
-  // const handleSearch = () => {
-  //   // Fetch location data from API based on user's search value
-  //   Promise.all([
-  //     fetch(`/api/locations?q=${searchValue}`),
-  //     fetch(`/api/lodgings?q=${searchValue}`),
-  //     fetch(`/api/attractions?q=${searchValue}`),
-  //     fetch(`/api/eateries?q=${searchValue}`)
-  //   ])
-  //     .then(responses => Promise.all(responses.map(response => response.json())))
-  //     .then(data => {
-  //       // Combine all search results into a single array
-  //       const searchResults = [...data[0], ...data[1], ...data[2], ...data[3]];
-  
-  //       // Update map view to center on the first matching location
-  //       const location = searchResults[0];
-  //       if (location) {
-  //         map.setCenter(location.coordinates);
-  //       }
-  //     })
-  //     .catch(error => console.error(error));
-  // };
-  
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    
-    const pk = 'pk.eyJ1IjoiamRlbHZhbGxlMTIiLCJhIjoiY2xnc2YyZG92MW50MTNqbWs1enV6a3gyOSJ9.NyHRU66sRujiLrEwi7AXow';
-  
-    document.addEventListener('load', () => {
-
-    const searchButton = document.getElementById('searchButton');
-    const searchInput = document.getElementById('searchInput');
-
-    searchButton.addEventListener('click', () => {
-    const searchValue = searchInput.value;
-
-    // Use the Mapbox Geocoding API to search for places and get their coordinates
-    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchValue}.json?access_token=${pk}`)
-      .then(response => response.json())
-      .then(data => {
-        // Get the coordinates of the first result
-        const coordinates = data.features[0].geometry.coordinates;
-        
-        // Center the map on the coordinates
-        map.setCenter(coordinates);
-        
-        new Mapbox.Marker({color: 'black'})
-        .setLngLat(coordinates)
-        .addTo(map);
-      })
-      .catch(error => console.error(error));
+  });
+  const lodgingMarkers = lodgingData.lodgings.map((lodging) => {
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [lodging.longitude, lodging.latitude]
+      },
+      properties: {
+        title: lodging.name,
+        description: lodging.description,
+        icon: 'lodging'
+      }
+    }
+  });
+  map.on('load', function () {
+    map.addSource('locations', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: locationsMarkers
+      }
+    });
+    map.addLayer({
+      id: 'locations',
+      type: 'symbol',
+      source: 'locations',
+      layout: {
+        'icon-image': '{icon}-15',
+        'icon-allow-overlap': true
+      }
+    });
+    map.addSource('lodging', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: lodgingMarkers
+      }
+    });
+    map.addLayer({
+      id: 'lodging',
+      type: 'symbol',
+      source: 'lodging',
+      layout: {
+        'icon-image': '{icon}-15',
+        'icon-allow-overlap': true
+      }
     });
   });
-} 
- 
-  // const handleLodgingSearch = () => {
-  //   // Fetch lodging data from API based on user's search value
-  //   fetch(`/api/lodging?q=${lodgingSearchValue}`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       // Display lodging markers on map
-  //       displayResultsOnMap(data);
-  //     })
-  //     .catch(error => console.error(error));
-  // };
-
-  // const handleAttractionsSearch = () => {
-  //   // Fetch lodging data from API based on user's search value
-  //   fetch(`/api/attractions?q=${attractionsSearchValue}`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       // Display lodging markers on map
-  //       displayResultsOnMap(data);
-  //     })
-  //     .catch(error => console.error(error));
-  // };
-
-  // const handleEateriesSearch = () => {
-  //   // Fetch lodging data from API based on user's search value
-  //   fetch(`/api/eateries?q=${eateriesSearchValue}`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       // Display lodging markers on map
-  //       displayResultsOnMap(data);
-  //     })
-  //     .catch(error => console.error(error));
-  // };
-
-  // const handleLocationsSearch = () => {
-  //   // Fetch lodging data from API based on user's search value
-  //   fetch(`/api/locations?q=${locationsSearchValue}`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       // Display lodging markers on map
-  //       displayResultsOnMap(data);
-  //     })
-  //     .catch(error => console.error(error));
-  // };
-
-  function displayResultsOnMap(results) {
-    // Clear any existing markers from the map
-    markerLayer.clearLayers();
+}
+}, [locationsData, lodgingData]);
   
-    // Loop through each result and add a marker to the map
-    results.forEach(result => {
-      const { latitude, longitude } = result.location;
-      const marker = L.marker([latitude, longitude]).addTo(markerLayer);
-      marker.bindPopup(result.name);
-    });
+//   const handleSearch = async (e) => {
+//     e.preventDefault();
+    
+//     const pk = 'pk.eyJ1IjoiamRlbHZhbGxlMTIiLCJhIjoiY2xnc2YyZG92MW50MTNqbWs1enV6a3gyOSJ9.NyHRU66sRujiLrEwi7AXow';
+  
+//     document.addEventListener('load', () => {
+
+//     const searchButton = document.getElementById('searchButton');
+//     const searchInput = document.getElementById('searchInput');
+
+//     searchButton.addEventListener('click', () => {
+//     const searchValue = searchInput.value;
+
+//     // Use the Mapbox Geocoding API to search for places and get their coordinates
+//     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchValue}.json?access_token=${pk}`)
+//       .then(response => response.json())
+//       .then(data => {
+//         // Get the coordinates of the first result
+//         const coordinates = data.features[0].geometry.coordinates;
+        
+//         // Center the map on the coordinates
+//         map.setCenter(coordinates);
+        
+//         new Mapbox.Marker({color: 'black'})
+//         .setLngLat(coordinates)
+//         .addTo(map);
+//       })
+//       .catch(error => console.error(error));
+//     });
+//   });
+// } 
+ 
+// Handle search input
+const handleSearch = (e) => {
+  setSearchValue(e.target.value);
   }
   
-
-
+  // Handle add location form submit
+  // const handleAddLocation = (e) => {
+  // e.preventDefault();
+  // const name = e.target.name.value;
+  // const description = e.target.description.value;
+  // const latitude = e.target.latitude.value;
+  // const longitude = e.target.longitude.value;
+  // addLocation({ variables: { name, description, latitude, longitude } });
+  // e.target.reset();
+  // }
+  
+  // // Handle add lodging form submit
+  // const handleAddLodging = (e) => {
+  // e.preventDefault();
+  // const name = e.target.name.value;
+  // const description = e.target.description.value;
+  // const latitude = e.target.latitude.value;
+  // const longitude = e.target.longitude.value;
+  // const locationId = e.target.locationId.value;
+  // addLodging({ variables: { name, description, latitude, longitude, locationId } });
+  // e.target.reset();
+  // }
+  
   return (
+  <ApolloProvider client={client}>
     <div>
-      <h1 className='explore text-5xl font-bold text-blue-800 mb-40'>Explore</h1>
-      <div class="search-container">
-      <Form inline>
-        <FormControl className='map-search-box' type="text" placeholder="Search" value={searchValue} onChange={e => setSearchValue(e.target.value)} />
-        <Button className='map-search-button' variant="outline-success" onClick={handleSearch}>Search</Button>
-      </Form>
-      {/* <Form inline>
-        <FormControl className='map-search-box' type="text" placeholder="Search lodging" value={lodgingSearchValue} onChange={e => setLodgingSearchValue(e.target.value)} />
-        <Button className='map-search-button' variant="outline-success" onClick={handleLodgingSearch}>Search lodging</Button>
-      </Form>
-      <Form inline>
-        <FormControl className='map-search-box' type="text" placeholder="Search attractions" value={attractionsSearchValue} onChange={e => setAttractionsSearchValue(e.target.value)} />
-        <Button className='map-search-button' variant="outline-success" onClick={handleAttractionsSearch}>Search attractions</Button>
-      </Form>
-      <Form inline>
-        <FormControl className='map-search-box' type="text" placeholder="Search eateries" value={eateriesSearchValue} onChange={e => setEateriesSearchValue(e.target.value)} />
-        <Button className='map-search-button' variant="outline-success" onClick={handleEateriesSearch}>Search eateries</Button>
-      </Form> */}
+      <div id="map" style={{ height: '600px' }} />
+        <div className="mt-4">
+          <Form inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" value={searchValue} onChange={handleSearch} />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </div>
+        <div className="row mt-4">
+        <div className="col-md-6">
+          <h2>Locations</h2>
+            {locationsLoading ? (
+          <p>Loading locations...</p>
+          ) : locationsError ? (
+          <p>Error loading locations</p>
+          ) : (
+            <ul>
+            {locationsData.locations.map((location) => (
+              <li key={location.id}>{location.name}</li>
+            ))}
+          </ul>
+           )}
+          </div>
       </div>
-      <div id="map" style={{ height: '500px', width: '80%' }}></div>
-      <ul>
-        {locations.map(location => (
-          <li key={location.id}>
-            <h2>{location.name}</h2>
-            <p>{location.description}</p>
-          </li>
-        ))}
-      </ul>
     </div>
+    </ApolloProvider>
   );
 }
+
+export default Explore;

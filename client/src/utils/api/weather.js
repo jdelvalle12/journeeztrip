@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Image from 'next/image';
+import Image from 'react-bootstrap/Image';
 
 const API_KEY = '49df163cf17140efac2ee29ad389b959'; // replace with your actual API key
 

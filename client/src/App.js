@@ -12,14 +12,15 @@ import Home from './pages/Home';
 import About from './pages/About';
 import NoMatch from './pages/NoMatch';
 import Blogs from './pages/Blogs';
-import Explore from './pages/Explore';
-import Language from './pages/Language.js'
+// import Explore from "./pages/Explore";
+import Language from './pages/Language';
 import Profile from './pages/Profile';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import { TravelProvider } from './utils/GlobalState';
+import './index.css';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -68,10 +69,10 @@ function App() {
                 path="/Blogs" 
                 element={<Blogs />} 
               />
-              <Route 
+              {/* <Route 
                 path="/Explore" 
                 element={<Explore />} 
-              />
+              /> */}
               <Route 
                 path="/Language" 
                 element={<Language />} 
