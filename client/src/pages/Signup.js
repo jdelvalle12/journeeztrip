@@ -22,7 +22,7 @@ function Signup(props) {
     Auth.login(token);
 
     // Redirect to profile page
-    router.push('./Profile');
+    // router.push('./Profile');
   };
 
   const handleChange = (event) => {

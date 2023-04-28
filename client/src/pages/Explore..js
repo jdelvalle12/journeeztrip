@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
 import Mapbox from 'mapbox-gl';
 import { Form, FormControl, Button } from 'react-bootstrap'; // importing search bar components from react-bootstrap
-// import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
-// import { resolvers, typeDefs } from "../server/schemas/resolvers";
-
-
 
 //  const client = new ApolloClient({
 //   uri: "http://localhost:4000/graphql",
@@ -201,13 +197,7 @@ eateries.forEach(eatery => {
     });
   }
   
-  // // Define the Leaflet map
-  // const map = L.map('map').setView([51.505, -0.09], 13);
-  
-  // // Define the marker layer
-  // const markerLayer = L.layerGroup().addTo(map);
 
-  
 
   return (
     <div>

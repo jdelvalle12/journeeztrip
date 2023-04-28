@@ -3,6 +3,7 @@ import Weather from "../pages/api/weather";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Image from 'react-bootstrap/Image';
 
 
 const Carousel = ({ images }) => {

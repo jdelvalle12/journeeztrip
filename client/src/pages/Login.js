@@ -16,7 +16,7 @@ function Login(props) {
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
-      router.push('./Profile'); // redirect to profile page
+      // router.push('./Profile'); // redirect to profile page
     } catch (e) {
       console.log(e);
     }

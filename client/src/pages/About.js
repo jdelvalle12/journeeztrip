@@ -1,5 +1,5 @@
 import React from 'react';
-import Horizon from './images/Horizon.jpg';
+import Horizon from '../images/Horizon.jpg';
 
 
 export default function About() {
