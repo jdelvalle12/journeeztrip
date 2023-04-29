@@ -420,3 +420,26 @@ img {
 .forecast-details p {
   margin-right: 1rem;
 }
+
+.welcome-heading {
+  font-size: 2.5rem;
+  margin-left: 1.5rem;
+}
+
+.profile-menu-container {
+ margin-top: 4rem;
+ margin-left: 2rem;
+}
+
+.profile-menu-items {
+  
+}
+
+.profile-link:hover {
+  background-color: black;
+  
+}
+
+.blogpost-container {
+
+}

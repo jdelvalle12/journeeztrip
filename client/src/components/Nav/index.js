@@ -28,41 +28,42 @@ function Nav() {
       </p>
     </div>
     <div className="menu-items">
-      <li>
-        <button onClick={handleAlert}>Alerts!</button>
+  <li>
+    <button onClick={handleAlert}>Alerts!</button>
+  </li>
+  <li>
+    <Link to="/" >Home</Link>
+  </li>
+  <li>
+    <Link to="/About" >About</Link>
+  </li>
+  {isLoggedIn && (
+    <li>
+      <button onClick={handleLogout}>Logout</button>
+    </li>
+  )}
+  {!isLoggedIn && (
+    <>
+      <li>  
+        <Link to="/Signup" >Signup</Link>
       </li>
       <li>
-        <Link href="/" >Home</Link>
+        <Link to="/Login" >Login</Link>
       </li>
-      <li>
-        <Link href="/About" >About</Link>
-      </li>
-      {isLoggedIn ? (
-        <li>
-          <button onClick={handleLogout}>Logout</button>
-        </li>
-       ) : (
-        <>
-        <li>  
-         <Link href="/Signup" >Signup</Link>
-        </li>
-        <li>
-          <Link href="/Login" >Login</Link>
-        </li>
-        {showAlert && (
-          <div className="alert" role="alert">
-            This is an alert!
-            <button onClick={() => setShowAlert(false)}>Close</button>
+      {showAlert && (
+        <div className="alert" role="alert">
+          This is an alert!
+          <button onClick={() => setShowAlert(false)}>Close</button>
         </div>
-        )}
-        </>
-       )}
+      )}
+    </>
+  )}
 </div>
     
 <nav>
   <ul className="nav-list flex min-h flex-col items-center justify-between p-24">
     <li className="nav-item mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-      <Link href="/Blogs" className="nav-link group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black">
+      <Link to="/Blogs" className="nav-link group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black">
         <h2 style={{ fontFamily: "Arial" }} className="nav-title m-0 max-w-[30ch] text-sm hover:text-white">
           Blogs {'>'}
         </h2>
@@ -73,7 +74,7 @@ function Nav() {
     </li>
  
     <li className="nav-item mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-      <Link href="/Explore" className="nav-link group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black">
+      <Link to="/Explore" className="nav-link group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black">
         <h2 style={{ fontFamily: "Arial" }} className="nav-title m-0 max-w-[30ch] text-sm hover:text-white">
           Explore{'>'}
         </h2>
@@ -84,7 +85,7 @@ function Nav() {
     </li>
 
     <li className="nav-item mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-      <Link href="/Language-Culture" className="nav-link group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black">
+      <Link to="/Language-Culture" className="nav-link group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black">
         <h2 style={{ fontFamily: "Arial" }} className="nav-title m-0 max-w-[30ch] text-sm hover:text-white">
           Langauge and Culture{'>'}
         </h2>
@@ -95,7 +96,7 @@ function Nav() {
     </li>
 
     <li className="nav-item mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-      <Link href="/Shop" className="nav-link group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black">
+      <Link to="/Shop" className="nav-link group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black">
         <h2 style={{ fontFamily: "Arial" }} className="nav-title m-0 max-w-[30ch] text-sm hover:text-white">
           Shop{'>'}
         </h2>

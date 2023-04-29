@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Form, Button } from 'react-bootstrap';
 
+
+const isLoggedIn = true; // or false, depending on the user's authentication status
+const userName = " "; // or whatever the user's name is
+
 export default function Profile() {
 
     const handleDownload = (event) => {
@@ -20,26 +24,30 @@ export default function Profile() {
 
   return (
     <div>
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">JourneEZ</Navbar.Brand>
+      <h1 className='welcome-heading'>
+        {isLoggedIn ? `Welcome ${userName}!` : 'Profile Page'}
+      </h1>
+
+      <Navbar className='profile-menu-container' bg="light" expand="lg">
+        <Navbar.Brand className='brand-name' to="#home">JourneEZ</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#planner">Planner</Nav.Link>
-            <Nav.Link href="#journal">Journal</Nav.Link>
+          <Nav className="profile-menu-items mr-auto">
+            <Nav.Link to="#planner">Planner</Nav.Link>
+            <Nav.Link to="#journal">Journal</Nav.Link>
             <Nav.Link onClick={handleDownload}>Download Photo</Nav.Link>
-            <Nav.Link href="#photos">Photos</Nav.Link>
-            <Nav.Link href="#budget">Budget</Nav.Link>
+            <Nav.Link to="#photos">Photos</Nav.Link>
+            <Nav.Link to="#budget">Budget</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <h1>Profile Page</h1>
-      <Form onSubmit={handleBlogPostSubmit}>
+
+      <Form className='blogpost-container' onSubmit={handleBlogPostSubmit}>
         <Form.Group controlId="blogPost">
           <Form.Label>Blog Post</Form.Label>
           <Form.Control as="textarea" rows={3} value={blogPost} onChange={handleBlogPostChange} />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button className='blogpost-button' variant="primary" type="submit">
           Submit
         </Button>
       </Form>
