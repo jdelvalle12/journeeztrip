@@ -24,7 +24,7 @@ function Nav() {
     <>
     <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
       <p className="app-title absolute left-20 top-10 flex w-full justify-center text-4xl lg:w-auto  ">
-        Journe<span className="text-5xl font-bold text-blue-800" href="/">EZ</span>
+        <Link to="/"> Journe<span className="text-5xl font-bold text-blue-800" >EZ</span></Link>
       </p>
     </div>
     <div className="menu-items">

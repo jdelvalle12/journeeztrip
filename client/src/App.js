@@ -10,20 +10,25 @@ import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
 import About from './pages/About';
-import NoMatch from './pages/NoMatch';
 import Blogs from './pages/Blogs';
+// import Budget from './pages/Budget';
 import Explore from "./pages/Explore";
+import Journal from './pages/Journal';
 import Language from './pages/Language';
+import NoMatch from './pages/NoMatch';
+import Photos from './pages/Photos';
+import Planner from './pages/Planner';
 import Profile from './pages/Profile';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import { TravelProvider } from './utils/GlobalState';
+// import { AuthProvider } from './utils/authContext';
 import './index.css';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3000/graphql',
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -47,6 +52,7 @@ function App() {
       <Router>
         <div>
           <TravelProvider>
+            {/* <AuthProvider> */}
             <Nav />
             <Routes>
               <Route 
@@ -69,13 +75,29 @@ function App() {
                 path="/Blogs" 
                 element={<Blogs />} 
               />
+              {/* <Route 
+                path="/Budget" 
+                element={<Budget />} 
+              /> */}
               <Route 
                 path="/Explore" 
                 element={<Explore />} 
               />
+               <Route 
+                path="/Journal" 
+                element={<Journal />} 
+              />
               <Route 
                 path="/Language" 
                 element={<Language />} 
+              />
+                <Route 
+                path="/Photos" 
+                element={<Photos />} 
+              />
+              <Route 
+                path="/Planner" 
+                element={<Planner />} 
               />
               <Route 
                 path="/Profile" 
@@ -90,6 +112,7 @@ function App() {
                 element={<NoMatch />} 
               />
             </Routes>
+            {/* </AuthProvider> */}
           </TravelProvider>
         </div>
       </Router>

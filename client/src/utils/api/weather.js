@@ -29,15 +29,15 @@ export default function Weather() {
       setForecast(savedWeather.forecast);
     }
   }, []);
-
+  
   useEffect(() => {
     async function fetchData() {
       const currentWeatherData = await getCurrentWeather(city);
       setCurrentWeather(currentWeatherData);
-
+      
       const forecastData = await getWeatherForecast(city);
       setForecast(forecastData);
-
+      
       // save weather data to localStorage
       const weatherData = {
         city: city,
@@ -46,18 +46,24 @@ export default function Weather() {
       };
       localStorage.setItem('weatherData', JSON.stringify(weatherData));
     }
-
+    
     if (city) {
       fetchData();
-    }
-  }, [city]);
-
+      const intervalId = setInterval(() => {
+        fetchData();
+      }, 86400000); // update every 60 seconds
+    
+      return () => clearInterval(intervalId);
+      }
+    }, [city]);
+ 
+  
   function handleSearch(event) {
     event.preventDefault();
     const newCity = event.target.elements.city.value.trim();
     setCity(newCity);
   }
-
+  
   return (
     <div className="weather-dashboard-card">
     <div className='weather-dashboard'>

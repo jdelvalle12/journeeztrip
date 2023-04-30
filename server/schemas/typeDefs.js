@@ -42,12 +42,27 @@ const typeDefs = gql`
     marker: Marker
   }
 
+  type JournalEntry {
+    id: ID!
+    date: String!
+    title: String!
+    content: String!
+  }
+
+  type Blog {
+    id: ID!
+    title: String!
+    content: String!
+    author: String!
+    tags: [String]
+    category: String
+  }
+
   type User {
     _id: ID
     firstName: String
     lastName: String
     email: String
-    
   }
 
   type Auth {
@@ -64,6 +79,7 @@ const typeDefs = gql`
     eateries(Location: ID, name: String): [Eatery]
     eatery(_id: ID!): Eatery
     user: User
+    journalEntries: [JournalEntry!]!
   }
 
   input UpdateLodgingInput {
@@ -106,6 +122,8 @@ const typeDefs = gql`
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    createJournalEntry(date: String!, title: String!, content: String!): JournalEntry
+    createBlog(title: String!, content: String!, author: String!, tags: [String]!, category: String!): Blog
     addLodging(name: String!, description: String!, image: String!, locationId: ID!, price: Float!, occupancy: Int!): Lodging
     addAttraction(name: String!, description: String!, image: String!, locationId: ID!, price: Float!, start_time: String!, end_time: String!): Attraction
     addEatery(name: String!, description: String!, image: String!, locationId: ID!, price: Float!, cuisine: String!): Eatery

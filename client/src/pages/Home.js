@@ -41,10 +41,6 @@ const Home = () => {
     
       
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      {/* <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-      <p className="absolute left-20 top-10 flex w-full justify-center text-4xl lg:w-auto  ">
-          Journe<span className="text-5xl font-bold text-blue-500">EZ</span>
-      </p> */}
       <h1 className='text-5xl font-bold text-blue-800 mb-20'>Welcome, your adventure awaits!</h1>
       <div className="video-container">
         <video autoPlay loop muted className="video-container" >

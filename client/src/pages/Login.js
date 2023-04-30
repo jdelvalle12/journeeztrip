@@ -32,14 +32,14 @@ function Login(props) {
 
   return (
     <div className="login-container my-1">
-      <Link className='go-to-signup' href="./Signup">← Go to Signup</Link>
+      <Link className='go-to-signup' href="./signup">← Go to Signup</Link>
 
       <h2 className='login-heading'>Login</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email address:</label>
           <input
-            placeholder="youremail@test.com"
+            placeholder="your email"
             name="email"
             type="email"
             id="email"

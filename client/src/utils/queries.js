@@ -69,3 +69,14 @@ export const USER_QUERY = gql`
     }
   }
 `;
+
+export const JOURNAL_ENTRIES_QUERY = gql`
+  query JournalEntries {
+    journalEntries {
+      id
+      date
+      title
+      content
+    }
+  }
+`;

@@ -137,3 +137,24 @@ mutation addEatery(
     }
   }
 `;
+
+export const CREATE_JOURNAL_ENTRY = gql`
+  mutation createJournalEntry(
+    $date: String!, 
+    $title: String!, 
+    $content: String!
+  ) 
+    {
+    createJournalEntry(
+      date: $date, 
+      title: $title,
+      content: $content) 
+    {
+      id
+      date
+      title
+      content
+    }
+  }
+`;
+

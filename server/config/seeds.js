@@ -1,6 +1,6 @@
 const db = require('./connection');
 const { getLatLong } = require('./utils/mapbox');
-const { User, Location, Lodging, Attraction, Eatery } = require('../models');
+const { User, Location, Lodging, Attraction, Eatery, JournalEntry } = require('../models');
 const mapbox = require('@mapbox/mapbox-sdk/services/geocoding');
 const geocodingClient = mapbox({ accessToken: process.env.MAPBOX_ACCESS_TOKEN });
 
@@ -10,6 +10,7 @@ db.once('open', async () => {
   await Lodging.deleteMany();
   await Attraction.deleteMany();
   await Eatery.deleteMany();
+  await JournalEntry.deleteMany();
 
   // Seed Locations
   const locationNames = await Location.insertMany([
@@ -290,6 +291,27 @@ const eateries = await Eatery.insertMany([
   },
 ]);
 
+
+const journalEntries = await JournalEntry.insertMany([
+  new JournalEntry({
+    date: '2018-09-14',
+    title: 'My first journal entry',
+    content: 'This is incredible',
+  }),
+  new JournalEntry({
+    date: '2018-09-15',
+    title: 'My second journal entry',
+    content: 'It was an amazing expereience',
+  }),
+]);
+
+journalEntries.forEach((entry) => {
+  entry.save((err) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+});
 
   await User.deleteMany();
 

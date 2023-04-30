@@ -67,7 +67,16 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-  },
+      // Define resolver function for querying journalEntries
+      journalEntries: () => {
+        // Code to fetch journal entries from database goes here
+        const journalEntries = [
+          { id: 1, date: "2022-04-29", title: "First entry", content: "This is my first entry" },
+          { id: 2, date: "2022-04-30", title: "Second entry", content: "This is my second entry" },
+        ];
+        return journalEntries;
+      }, 
+    },
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
@@ -205,8 +214,35 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
-  }
+    },
+      // Define resolver function for creating a new journal entry
+      createJournalEntry: (parent, args) => {
+        // Code to save new entry to database goes here
+        const newEntry = {
+          id: journalEntries.length + 1,
+          date: args.date,
+          title: args.title,
+          content: args.content,
+        };
+        return newEntry;
+      }
+    },
+    JournalEntry: {
+      // Define resolver functions for each field of the JournalEntry type
+      id: (parent) => parent.id,
+      date: (parent) => parent.date,
+      title: (parent) => parent.title,
+      content: (parent) => parent.content,
+    },
+  //   createBlog: {
+  //     resolve: (_, { title, content, author, tags, category }) => {
+  //       const id = blog.length + 1;
+  //       const blog = { id, title, content, author, tags, category };
+  //       blog.push(blog);
+  //       return blog;
+  //   },
+  // },
 };
+
 
 module.exports = resolvers;
