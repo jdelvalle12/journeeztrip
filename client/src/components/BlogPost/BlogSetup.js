@@ -14,7 +14,7 @@ function BlogSetup() {
       <Row>
         {blogPosts.map(post => (
           <Col sm={4} key={post.id}>
-            <BlogCards
+            <BlogCards className='blog-card'
               title={post.title}
               image={post.image}
               excerpt={post.excerpt}

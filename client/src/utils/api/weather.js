@@ -10,8 +10,8 @@ export async function getCurrentWeather(city) {
   return response.data.data[0];
 }
 
-export async function getWeatherForecast(city) {
-  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${API_KEY}&units=imperial`;
+export async function getWeatherForecast(city, date) {
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${API_KEY}&units=imperial&days=7`;
   const response = await axios.get(url);
   return response.data.data;
 }
@@ -20,7 +20,8 @@ export default function Weather() {
   const [city, setCity] = useState(''); // the current city
   const [currentWeather, setCurrentWeather] = useState(null); // the current weather data
   const [forecast, setForecast] = useState(null); // the weather forecast data
-
+  
+  
   useEffect(() => {
     // get weather data from localStorage if it exists
     const savedWeather = JSON.parse(localStorage.getItem('weatherData'));
@@ -35,8 +36,15 @@ export default function Weather() {
       const currentWeatherData = await getCurrentWeather(city);
       setCurrentWeather(currentWeatherData);
       
-      const forecastData = await getWeatherForecast(city);
-      setForecast(forecastData);
+      // const forecastData = await getWeatherForecast(city);
+      // setForecast(forecastData);
+      
+      
+        const currentDate = new Date();
+        currentDate.setDate(currentDate.getDate() + 1);
+        const forecastData = await getWeatherForecast(city, currentDate.toISOString().slice(0, 10));
+        setForecast(forecastData);
+      
       
       // save weather data to localStorage
       const weatherData = {
@@ -51,20 +59,20 @@ export default function Weather() {
       fetchData();
       const intervalId = setInterval(() => {
         fetchData();
-      }, 86400000); // update every 60 seconds
-    
+      },21600000); // update every 6 hrs
+      
       return () => clearInterval(intervalId);
-      }
+    }
     }, [city]);
  
-  
-  function handleSearch(event) {
-    event.preventDefault();
-    const newCity = event.target.elements.city.value.trim();
-    setCity(newCity);
-  }
-  
-  return (
+    
+    function handleSearch(event) {
+      event.preventDefault();
+      const newCity = event.target.elements.city.value.trim();
+      setCity(newCity);
+    }
+    
+    return (
     <div className="weather-dashboard-card">
     <div className='weather-dashboard'>
       <div className='search-container'>
