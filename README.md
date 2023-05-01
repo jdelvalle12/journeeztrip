@@ -23,7 +23,7 @@ and a way to document their experiences.
 
 ## Installation
 
-REACT
+REACT, GraphQL, Apollo, Node.js
 
 
 ## Usage
