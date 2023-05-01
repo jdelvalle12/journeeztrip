@@ -4,6 +4,7 @@ import Image from 'react-bootstrap/Image';
 
 const API_KEY = '49df163cf17140efac2ee29ad389b959'; // replace with your actual API key
 
+
 export async function getCurrentWeather(city) {
   const url = `https://api.weatherbit.io/v2.0/current?city=${city}&key=${API_KEY}&units=imperial`;
   const response = await axios.get(url);
@@ -21,7 +22,7 @@ export default function Weather() {
   const [currentWeather, setCurrentWeather] = useState(null); // the current weather data
   const [forecast, setForecast] = useState(null); // the weather forecast data
   
-  
+
   useEffect(() => {
     // get weather data from localStorage if it exists
     const savedWeather = JSON.parse(localStorage.getItem('weatherData'));
@@ -42,7 +43,7 @@ export default function Weather() {
       
         const currentDate = new Date();
         currentDate.setDate(currentDate.getDate() + 1);
-        const forecastData = await getWeatherForecast(city, currentDate.toISOString().slice(0, 10));
+        const forecastData = await getWeatherForecast(city, currentDate.toISOString().slice(0,7));
         setForecast(forecastData);
       
       
@@ -59,7 +60,7 @@ export default function Weather() {
       fetchData();
       const intervalId = setInterval(() => {
         fetchData();
-      },21600000); // update every 6 hrs
+      }, 21600000); // update every 6hrs
       
       return () => clearInterval(intervalId);
     }
@@ -87,7 +88,7 @@ export default function Weather() {
 
       {currentWeather && (
         <div className='current-weather-container'>
-          <h2>Current weather in {city}:</h2>
+          <h2 className='text-2xl font-bold text-blue-800'>Current weather in {city}:</h2>
           <div className='current-weather-details'>
           <Image
             src={`https://www.weatherbit.io/static/img/icons/${currentWeather.weather.icon}.png`}
@@ -104,10 +105,10 @@ export default function Weather() {
         </div>
         </div>
       )}
-
       {forecast && (
         <div className='forecast-container'>
-          <h2>{city}:</h2>
+          <h3 className='text-3xl font-bold text-blue-800'>Forecast</h3>
+          <h2>{city}</h2>
           <ul className='forecast-list'>
             {forecast.map((item) => (
               <li key={item.datetime} className='forecast-item'>

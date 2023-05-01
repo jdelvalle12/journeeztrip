@@ -20,20 +20,20 @@ const Carousel = ({ images }) => {
     };
 
 
-  //   return (
-  //       <div className="carousel-container relative w-full items-center">
-  //       <Slider {...settings}>
-  //         {images.map((image, index) => (
-  //           <div key={index}>
-  //             <div>
-  //               <Image src={image.src} alt={image.alt} width={600} height={400} />
-  //             </div>
-  //           </div>
-  //         ))}
-  //       </Slider>
-  //     </div>
-  //   );
-  // };
+    return (
+        <div className="carousel-container relative w-full items-center">
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <div key={index}>
+              <div>
+                <Image src={image.src} alt={image.alt} width={600} height={400} />
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    );
+  };
 
 
 

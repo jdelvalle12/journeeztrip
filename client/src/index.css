@@ -32,7 +32,7 @@ img {
 }
 
 .video-container {
-  width: 80%;
+  width: 55rem;
   height: auto;
   margin: 0 auto;
 }
@@ -88,7 +88,7 @@ img {
 }
 
 .current-weather-details {
-  background-color: lightcyan;
+  background: linear-gradient(to bottom, #83a4d4, #b6fbff);
   display: flex;
   align-items: center;
   border: 1px solid black
@@ -113,15 +113,17 @@ img {
 
 .forecast-list {
   list-style-type: none;
-  padding: 0;
+  padding: 1;
   flex-direction: row;
   display: flex;
 }
 
 .forecast-item {
-  background-color: lightcyan;
-  margin-bottom: 0.5rem;
-  border: 1px solid black
+  background: linear-gradient(to bottom, #f2fcfe, #c4e0e5);
+  /* margin-bottom: 0.5rem; */
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .forecast-details {
@@ -279,6 +281,7 @@ img {
 
 .about-us-img {
   margin-top: 29rem;
+  margin-bottom: 2rem;
 }
 
 /* Signup */
@@ -337,22 +340,26 @@ img {
 }
 
 /* Blog card container */
+
+
 .blogs-page {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   gap: 30px;
   padding: 50px;
   background-color: none;
 }
 
-.blog-card {
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border: 2px solid black;
+.card-container {
+  display: flex;
+  /* flex-direction: row; */
+  width: 23rem;
+  /* border: 2px solid black; */
   border-radius: 10px;
   overflow: hidden;
+  padding: 1rem;
 }
 
 .blog-card img {
@@ -372,6 +379,11 @@ img {
   line-height: 1.5;
   margin: 10px;
 }
+
+.blog-card-button:hover {
+  background-color: lightblue;
+}
+
 
 @media only screen and (min-width: 768px) {
   .blog-card {

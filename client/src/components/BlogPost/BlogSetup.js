@@ -1,12 +1,14 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Row, Col } from 'react-bootstrap';
 import BlogCards from './BlogCards';
+import Passport from '../../images/passport.jpg';
+import Canyon from '../../images/grandcanyon.jpg';
+import Cruises from '../../images/cruises.jpg';
 
 function BlogSetup() {
   const blogPosts = [
-    { id: 1, title: 'My Trip to Bali', image: 'https://example.com/bali.jpg', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { id: 2, title: 'Hiking in the Grand Canyon', image: 'https://example.com/grand-canyon.jpg', excerpt: 'Pellentesque euismod libero vel sapien faucibus, eget ultricies mauris imperdiet.' },
-    { id: 3, title: 'Exploring Tokyo', image: 'https://example.com/tokyo.jpg', excerpt: 'Morbi eu risus at odio sagittis faucibus.' },
+    { id: 1, title: 'Getting a Passport', image: Passport, excerpt: 'Make sure you get your passports 6 months ahead of your trip since there is a backlog.' },
+    { id: 2, title: 'Hiking in the Grand Canyon', image: Canyon, excerpt: 'Hiking the Grand Canyon was incredible and views were breathtaking.' },
+    { id: 3, title: 'Cruising Away', image: Cruises, excerpt: 'Never traveled before? Going on a cruise is a good start.' },
   ];
 
   return (

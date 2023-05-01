@@ -20,7 +20,7 @@ function Journal() {
       },
       {
         id: 2,
-        date: '2018-09-05',
+        date: '2018-09-15',
         title: 'Exploring the city',
         content: 'I went to the Eiffel Tower and the Louvre Museum.',
       },

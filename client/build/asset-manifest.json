@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "./static/css/main.40803a93.css",
+    "main.js": "./static/js/main.ffe621be.js",
+    "static/media/Mykonos-aerial-view.mp4": "./static/media/Mykonos-aerial-view.ed71c9be3ab7808a65a5.mp4",
+    "static/media/grandcanyon.jpg": "./static/media/grandcanyon.11ef19a6b214e0d2ebbe.jpg",
+    "static/media/CEO.jpg": "./static/media/CEO.e1c46349138eab8e7338.jpg",
+    "static/media/Horizon.jpg": "./static/media/Horizon.d3be1258276a8bf280d9.jpg",
+    "static/media/Tropical Summer Getaways.jpg": "./static/media/Tropical Summer Getaways.2747e89caecd7be626c7.jpg",
+    "static/media/ME.jpg": "./static/media/ME.43493df68b0fc5f1d4fa.jpg",
+    "static/media/towerbridge.jpg": "./static/media/towerbridge.f325ec7dab15e72a6741.jpg",
+    "static/media/Florence.jpg": "./static/media/Florence.6c72bb1df83771af7532.jpg",
+    "static/media/eiffeltower.jpg": "./static/media/eiffeltower.d67d68501ee6681099e2.jpg",
+    "static/media/Travel Gears.jpg": "./static/media/Travel Gears.ddec51f1794a0988397e.jpg",
+    "static/media/cruises.jpg": "./static/media/cruises.8ae0f7b1f0d4a9f1be57.jpg",
+    "static/media/passport.jpg": "./static/media/passport.fe331255b846a69ab924.jpg",
+    "static/media/slick.svg": "./static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "./static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "./static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "./static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "./index.html",
+    "main.40803a93.css.map": "./static/css/main.40803a93.css.map",
+    "main.ffe621be.js.map": "./static/js/main.ffe621be.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40803a93.css",
+    "static/js/main.ffe621be.js"
+  ]
+}

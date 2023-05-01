@@ -19,7 +19,7 @@ import NoMatch from './pages/NoMatch';
 import Photos from './pages/Photos';
 import Planner from './pages/Planner';
 import Profile from './pages/Profile';
-import Shop from './pages/Shop';
+// import Shop from './pages/Shop';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
@@ -103,10 +103,10 @@ function App() {
                 path="/Profile" 
                 element={<Profile />} 
               />
-              <Route 
+              {/* <Route 
                 path="/Shop" 
                 element={<Shop />} 
-              />
+              /> */}
               <Route 
                 path="*" 
                 element={<NoMatch />} 

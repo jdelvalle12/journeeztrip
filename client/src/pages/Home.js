@@ -45,6 +45,7 @@ const Home = () => {
         </video>
       </div>
       <div>
+        
         <Weather className='weather-dashboard' />
       </div>
       <div className="carousel-container relative w-full items-center ">

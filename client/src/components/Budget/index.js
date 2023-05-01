@@ -35,6 +35,7 @@ function Budget() {
 
   return (
     <div>
+      <Navbar.Brand className='brand-name-profile text-4xl font-bold text-blue-800' href="/Profile">EZ</Navbar.Brand>
       <h1>Budget</h1>
       <form>
         <label>
