@@ -74,7 +74,7 @@ export default function Profile() {
       <h1 className='welcome-heading text-blue-800'>
         {isLoggedIn ? `Welcome ${name}!` : 'Profile Page'}
       </h1>
-        <Navbar.Brand className='brand-name-profile text-4xl font-bold text-blue-800' to="/Profile">EZ</Navbar.Brand>
+        <Link className='brand-name-profile text-4xl font-bold text-blue-800' to="/Profile">EZ</Link>
 
       <div className='profile-picture-container'>
                 <Image src={CEO} alt='Profile picture' style={{ maxWidth: '100%', height: 'auto' }} className='profile-picture' />

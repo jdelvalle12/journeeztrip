@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Navbar } from 'react-bootstrap';
+// import { Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Planner() {
   const [destination, setDestination] = useState('');
@@ -14,7 +15,7 @@ function Planner() {
 
   return (
     <div className='planner-container'>
-        <Navbar.Brand className='brand-name text-4xl font-bold text-blue-800' href="/Profile">EZ</Navbar.Brand>
+        <Link className='brand-name text-4xl font-bold text-blue-800' href="/Profile">EZ</Link>
       <h1 className='planner-heading' >Travel Planner</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="destination">Destination</label>
