@@ -6,9 +6,9 @@ import Cruises from '../../images/cruises.jpg';
 
 function BlogSetup() {
   const blogPosts = [
-    { id: 1, title: 'Getting a Passport', image: Passport, excerpt: 'Getting your passport is diffcult to get now as there is a backlog.' },
-    { id: 2, title: 'Hiking in the Grand Canyon', image: Canyon, excerpt: 'Hiking the Grand Canyon was incredible and views were breathtaking.' },
-    { id: 3, title: 'Cruising Away', image: Cruises, excerpt: 'Never traveled before? Going on a cruise is a good start.' },
+    { id: 1, title: 'Getting a Passport',  image: Passport, excerpt: '2023-04-28  Getting your passport is diffcult to get now as there is a backlog.' },
+    { id: 2, title: 'Hiking in the Grand Canyon', image: Canyon, excerpt: ' 2019-08-16 Hiking the Grand Canyon was incredible and views were breathtaking.' },
+    { id: 3, title: 'Cruising Away', image: Cruises, excerpt: ' 2023-04-25 Never traveled before? Going on a cruise is a good start.' },
   ];
 
   return (

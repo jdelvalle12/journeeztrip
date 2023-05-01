@@ -3,7 +3,32 @@ import Mapbox from 'mapbox-gl';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import Eiffel from '../images/eiffeltower.jpg';
+import Caribbean from '../images/Caribbean.jpg';
+import Madrid from '../images/Madrid.jpg';
 // import { Form, FormControl, Button } from 'react-bootstrap'; // importing search bar components from react-bootstrap
+import InterestCard from '../components/AreasInterest/InterestCard';
+
+const areasOfInterest = [
+  {
+    id: 1,
+    name: 'Eiffel Tower',
+    image: Eiffel,
+    description: 'Explore the most iconic.'
+  },
+  {
+    id: 2,
+    name: 'Beaches',
+    image: Caribbean,
+    description: 'Relax on sandy beaches and soak up the sun.'
+  },
+  {
+    id: 3,
+    name: 'City',
+    image: Madrid,
+    description: 'Discover the hustle and bustle of Madrid.'
+  },
+];
 
 export default function Explore() {
   const [locations, setLocations] = useState([]);
@@ -100,17 +125,18 @@ export default function Explore() {
         <FormControl type="text" placeholder="Search" className="mr-sm-2" value={searchValue} onChange={e => setSearchValue(e.target.value)} />
         <Button className='search-box' variant="outline-success" onClick={handleSearch}>Search</Button>
       </Form> */}
-      <div id="map" style={{ height: '500px' , width: '1200px' }}>
-
-      </div>
-      {/* <ul>
-        {locations.map(location => (
-          <li key={location.id}>
-            <h2>{location.name}</h2>
-            <p>{location.description}</p>
-          </li>
+      <div id="map" style={{ height: '500px' , width: '1200px' }}></div>
+      <h2 className=' text-4xl font-bold text-blue-800'>Areas of Interest</h2>
+      <div className='interest-cards-container'>
+        {areasOfInterest.map((area) => (
+          <InterestCard
+            key={area.id}
+            name={area.name}
+            image={area.image}
+            description={area.description}
+          />
         ))}
-      </ul> */}
+      </div>
     </div>
   );
 }

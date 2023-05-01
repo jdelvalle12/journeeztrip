@@ -2,7 +2,11 @@
 
 ## Description
 
-This application allows for users to store information and manage a company's employee database. The user can view all departments, roles, employees, update information for roles and employees, as well as add roles, and employees into the database. 
+Many people travel to many parts of the world everyday, and some of them are first time solo travelers,
+but they get overwhelmed with all the information that is out there, about where to go, where to stay,
+where to eat, what to do, etc. This app aims to ease those nerves for first time travelers in the most
+simplistic way by providing information and tips as well as share their experience with other solo travelers
+and a way to document their experiences. 
 
 
 
@@ -24,12 +28,12 @@ REACT
 
 ## Usage
 
-Created a database to manage employee information in a database
+Created an app for first time solo travelers to have everything they need in one when traveling.
 
 
 ## License
 
-None
+MIT
 
 
 ## Badges
@@ -38,12 +42,12 @@ none
 
 ## Contribute
 
-The contributions what were made in this challenge was buidling the app from scratch. Created a schema sql and seeds sql to get the data from, and build a server file, installed MySQL2 pacakage to connect the MySQL database and perform quieries, the inquirer package to interact with the user via the command line, and console.table pacakage to print MySQL rows to the console.
+Jose- Project Manager, Back-end, and Front-end Developer
  
 
 ## Test
 
-To the test if the application is functioning, enter the command node.js, the questions should display, and select a question and input information into the database and view the database as well. 
+To test the app, input the command npm run develop to develop the app, started npm run build to compile, & deployed the app to test its functions as well 
 
 
 ### Contact

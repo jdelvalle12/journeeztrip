@@ -15,7 +15,7 @@ function Planner() {
 
   return (
     <div className='planner-container'>
-        <Link className='brand-name text-4xl font-bold text-blue-800' href="/Profile">EZ</Link>
+        <Link className='brand-name text-4xl font-bold text-blue-800' to="/Profile">EZ</Link>
       <h1 className='planner-heading' >Travel Planner</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="destination">Destination</label>

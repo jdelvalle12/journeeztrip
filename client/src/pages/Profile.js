@@ -71,7 +71,7 @@ export default function Profile() {
 
   return (
     <div>
-      <h1 className='welcome-heading text-blue-800'>
+      <h1 className='welcome-heading font-bold text-blue-800'>
         {isLoggedIn ? `Welcome ${name}!` : 'Profile Page'}
       </h1>
         <Link className='brand-name-profile text-4xl font-bold text-blue-800' to="/Profile">EZ</Link>
@@ -83,17 +83,17 @@ export default function Profile() {
       </div>
 
       <Navbar className='profile-menu-container' bg="light" expand="lg">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="profile-menu-items mr-auto">
-            <Link className='planner-item border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Planner ">Planner</Link>
-            <Link className='journal border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Journal">Journal</Link>            
-            <Link className='photos border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Photos">Photos</Link>
-            <Link className='budget border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Budget">Budget</Link>
-            <Link className='logout border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/">Logout</Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="profile-menu-items mr-auto">
+      <Link className='planner-item border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Planner ">Planner</Link>
+      <Link className='journal border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Journal">Journal</Link>            
+      <Link className='photos border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Photos">Photos</Link>
+      <Link className='budget border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Budget">Budget</Link>
+      <Link className='logout border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/">Logout</Link>
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
 
 
       <Form className='blogpost-container' onSubmit={handleBlogPostSubmit}>

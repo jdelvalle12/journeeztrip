@@ -4,11 +4,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'react-bootstrap/Image';
 import Tropical from '../images/Tropical Summer Getaways.jpg';
-import Horizon from '../images/Horizon.jpg';
+import Airport from '../images/Airport.jpg';
 import Gears from '../images/Travel Gears.jpg';
 
 const Carousel = ({ images }) => {
-  const images = [Tropical, Gears, Horizon];
+  const images = [Tropical, Gears, Airport];
     const settings = {
       dots: true,
       infinite: true,

@@ -23,6 +23,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 import { TravelProvider } from './utils/GlobalState';
 // import { AuthProvider } from './utils/authContext';
 import './index.css';
@@ -112,6 +113,7 @@ function App() {
                 element={<NoMatch />} 
               />
             </Routes>
+            <Footer />
             {/* </AuthProvider> */}
           </TravelProvider>
         </div>
