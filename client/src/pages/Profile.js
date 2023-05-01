@@ -85,11 +85,11 @@ export default function Profile() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="profile-menu-items mr-auto">
-            <Nav.Link className='planner-item border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Planner ">Planner</Nav.Link>
-            <Nav.Link className='journal border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Journal">Journal</Nav.Link>            
-            <Nav.Link className='photos border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Photos">Photos</Nav.Link>
-            <Nav.Link className='budget border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Budget">Budget</Nav.Link>
-            <Nav.Link className='logout border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/">Logout</Nav.Link>
+            <Link className='planner-item border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Planner ">Planner</Link>
+            <Link className='journal border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Journal">Journal</Link>            
+            <Link className='photos border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Photos">Photos</Link>
+            <Link className='budget border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Budget">Budget</Link>
+            <Link className='logout border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/">Logout</Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -60,11 +60,11 @@ function App() {
                 element={<Home />} 
               />
               <Route 
-                path="/login" 
+                path="/Login" 
                 element={<Login />} 
               />
               <Route 
-                path="/signup" 
+                path="/Signup" 
                 element={<Signup />} 
               />
               <Route 
