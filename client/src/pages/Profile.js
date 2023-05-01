@@ -3,6 +3,7 @@ import { Navbar, Nav, Form, Button } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 import CEO from '../images/CEO.jpg';
 import Blog from '../pages/Blogs';
+import { Link } from 'react-router-dom';
 
 const isLoggedIn = true; // or false, depending on the user's authentication status
 const name = " "; // or whatever the user's name is
