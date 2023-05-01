@@ -73,7 +73,7 @@ export default function Profile() {
       <h1 className='welcome-heading text-blue-800'>
         {isLoggedIn ? `Welcome ${name}!` : 'Profile Page'}
       </h1>
-        <Navbar.Brand className='brand-name-profile text-4xl font-bold text-blue-800' href="/Profile">EZ</Navbar.Brand>
+        <Navbar.Brand className='brand-name-profile text-4xl font-bold text-blue-800' to="/Profile">EZ</Navbar.Brand>
 
       <div className='profile-picture-container'>
                 <Image src={CEO} alt='Profile picture' style={{ maxWidth: '100%', height: 'auto' }} className='profile-picture' />
@@ -85,11 +85,11 @@ export default function Profile() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="profile-menu-items mr-auto">
-            <Nav.Link className='planner-item border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' href="/Planner ">Planner</Nav.Link>
-            <Nav.Link className='journal border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' href="/Journal">Journal</Nav.Link>            
-            <Nav.Link className='photos border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' href="/Photos">Photos</Nav.Link>
-            <Nav.Link className='budget border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' href="/Budget">Budget</Nav.Link>
-            <Nav.Link className='logout border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' href="/">Logout</Nav.Link>
+            <Nav.Link className='planner-item border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Planner ">Planner</Nav.Link>
+            <Nav.Link className='journal border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Journal">Journal</Nav.Link>            
+            <Nav.Link className='photos border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Photos">Photos</Nav.Link>
+            <Nav.Link className='budget border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/Budget">Budget</Nav.Link>
+            <Nav.Link className='logout border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' to="/">Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
