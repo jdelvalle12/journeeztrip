@@ -6,7 +6,7 @@ import Cruises from '../../images/cruises.jpg';
 
 function BlogSetup() {
   const blogPosts = [
-    { id: 1, title: 'Getting a Passport', image: Passport, excerpt: 'Make sure you get your passports 6 months ahead of your trip since there is a backlog.' },
+    { id: 1, title: 'Getting a Passport', image: Passport, excerpt: 'Getting your passport is diffcult to get now as there is a backlog.' },
     { id: 2, title: 'Hiking in the Grand Canyon', image: Canyon, excerpt: 'Hiking the Grand Canyon was incredible and views were breathtaking.' },
     { id: 3, title: 'Cruising Away', image: Cruises, excerpt: 'Never traveled before? Going on a cruise is a good start.' },
   ];

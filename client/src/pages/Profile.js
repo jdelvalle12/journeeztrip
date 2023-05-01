@@ -6,16 +6,20 @@ import Blog from '../pages/Blogs';
 
 const isLoggedIn = true; // or false, depending on the user's authentication status
 const name = " "; // or whatever the user's name is
+// const handleUploadFile = (event) => {
+//   event.preventDefault();
+//   // add code to upload the selected file to your backend server
+// }
 
 export default function Profile() {
 
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
 
     
 
-     const handleUpload = (event) => {
-      setSelectedFile(URL.createObjectURL(event.target.files[0]));
-    }
+    //  const handleUpload = (event) => {
+    //   setSelectedFile(URL.createObjectURL(event.target.files[0]));
+    // }
 
     const [blogPost, setBlogPost] = useState('');
     const [submittedBlogPost, setSubmittedBlogPost] = useState('');
@@ -59,10 +63,6 @@ export default function Profile() {
   //   setSelectedFile(event.target.files[0]);
   // }
 
-  const handleUploadFile = (event) => {
-    event.preventDefault();
-    // add code to upload the selected file to your backend server
-  }
 
   // const handleFileInputChange = (event) => {
   //   setSelectedFile(event.target.files[0]);

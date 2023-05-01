@@ -1,6 +1,6 @@
 // pages/Photo.js
-import React, { useState } from 'react';
-import Photo from '../components/Photos/index';
+import React from 'react';
+// import Photo from '../components/Photos/index';
 import { Navbar } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 import CEO from '../images/CEO.jpg';
@@ -10,21 +10,21 @@ import ME from '../images/ME.jpg';
 import Florence from '../images/Florence.jpg';
 
 function Photos() {
-
-  <Navbar.Brand className='brand-name-photos text-4xl font-bold text-blue-800' href="/Profile">EZ</Navbar.Brand>
-
-    const [selectedFile, setSelectedFile] = useState(null);
-
-    const handleUploadFile = (event) => {
-        event.preventDefault();
-        // add code to upload the selected file to your backend server
-      }
-
-      const handleUpload = (event) => {
-        setSelectedFile(URL.createObjectURL(event.target.files[0]));
-      }
-
+  
+  
+  // const [selectedFile, setSelectedFile] = useState(null);
+  
+  // const handleUploadFile = (event) => {
+    //     event.preventDefault();
+    //     // add code to upload the selected file to your backend server
+    //   }
+    
+    // const handleUpload = (event) => {
+      //   setSelectedFile(URL.createObjectURL(event.target.files[0]));
+      // }
+      
       <div className='picture-container'>
+        <Navbar.Brand className='brand-name-photos text-4xl font-bold text-blue-800' href="/Profile">EZ</Navbar.Brand>
       {/* <Image src={CEO} alt='Profile picture' style={{ maxWidth: '100%', height: 'auto' }} className='profile-picture' /> */}
         {/* <input type='file' onChange={handleUpload} /> */}
         {/* <Button className='upload-photo-button border-transparent px-5 py-4 transition-colors hover:border-black-300 hover:bg-black-100 hover:text-white hover:bg-black' variant="primary" onClick={handleUploadFile}>Upload Photo</Button> */}

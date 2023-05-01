@@ -7,9 +7,9 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 export default function Explore() {
   const [locations, setLocations] = useState([]);
-  const [searchValue, setSearchValue] = useState('');
+  // const [searchValue, setSearchValue] = useState('');
   const [marker, setMarker] = useState(null);
-  let map;
+  // let map;
   const longitude = -81.3;
   const latitude = 28.5;
 
@@ -76,7 +76,7 @@ export default function Explore() {
     return () => {
       map.remove();
     }
-  }, [locations]);
+  }, [locations, longitude, marker]);
 
   // const handleSearch = () => {
   //   // Fetch location data from API based on user's search value
