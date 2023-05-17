@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.37f9bd5c.css",
-    "main.js": "./static/js/main.d2d17282.js",
+    "main.js": "./static/js/main.15a1721c.js",
     "static/media/Mykonos-aerial-view.mp4": "./static/media/Mykonos-aerial-view.ed71c9be3ab7808a65a5.mp4",
     "static/media/Madrid.jpg": "./static/media/Madrid.ebfa45bfa016d12154ad.jpg",
     "static/media/grandcanyon.jpg": "./static/media/grandcanyon.11ef19a6b214e0d2ebbe.jpg",
@@ -29,10 +29,10 @@
     "static/media/slick.woff": "./static/media/slick.295183786cd8a1389865.woff",
     "index.html": "./index.html",
     "main.37f9bd5c.css.map": "./static/css/main.37f9bd5c.css.map",
-    "main.d2d17282.js.map": "./static/js/main.d2d17282.js.map"
+    "main.15a1721c.js.map": "./static/js/main.15a1721c.js.map"
   },
   "entrypoints": [
     "static/css/main.37f9bd5c.css",
-    "static/js/main.d2d17282.js"
+    "static/js/main.15a1721c.js"
   ]
 }
